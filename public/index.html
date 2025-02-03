@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat em Tempo Real</title>
+</head>
 
 <body>
   <ul id="messages"></ul>
   <form action="">
     <input autocomplete="off" /><button>Enviar</button>
   </form>
-</body>
 
-<head>
-  <title>Chat em Tempo Real</title>
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
     var form = document.querySelector('form');
     var input = document.querySelector('input');
-    console.log(form)
 
     // Envia a mensagem quando pressionar "Enter" ou enviar pelo formulário
     form.addEventListener('submit', function (event) {
@@ -31,6 +33,6 @@
       document.getElementById('messages').appendChild(item);
     });
   </script>
-</head>
+</body>
 
 </html>
