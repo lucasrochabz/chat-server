@@ -5,8 +5,8 @@ const saveMessage = (message) => {
   console.log(`Salvando mensagem: ${message}`);
 };
 
-const getMessages = () => {
+const getHistoryMessages = () => {
   return messages; // Retorna todas as mensagens armazenadas
 };
 
-module.exports = { saveMessage, getMessages };
+module.exports = { saveMessage, getHistoryMessages };

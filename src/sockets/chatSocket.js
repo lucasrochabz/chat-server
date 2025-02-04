@@ -8,7 +8,7 @@ const setupChatSocket = (io) => {
     console.log(`Um usuário se conectado. IP:${clienIp}`);
 
     // Enviar histórico de mensagens para o novo usuário
-    const messages = chatService.getMessages();
+    const messages = chatService.getHistoryMessages();
     socket.emit('chat history', messages);
 
     // Envia uma mensagem para todos os clientes conectados
