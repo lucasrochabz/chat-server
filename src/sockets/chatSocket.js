@@ -3,18 +3,19 @@ const chatService = require('../services/chatService');
 const setupChatSocket = (io) => {
   // Estabelece a conexão do socket
   io.on('connection', (socket) => {
-    // Obtém o IP do cliente
+    // Obtém o IP do usuário
     const clienIp = socket.handshake.address;
-    console.log('Um usuário se conectou');
-    console.log(`Novo cliente conectado: ${clienIp}`);
+    console.log(`Um usuário se conectado. IP:${clienIp}`);
+
+    // Enviar histórico de mensagens para o novo usuário
+    const messages = chatService.getMessages();
+    socket.emit('chat history', messages);
 
     // Envia uma mensagem para todos os clientes conectados
     socket.on('chat message', async (msg) => {
       try {
         chatService.saveMessage(msg);
-
-        // Emite a mensagem para todos os clientes
-        io.emit('chat message', msg);
+        io.emit('chat message', msg); // Envia a mensagem para todos os clientes
       } catch (error) {
         console.error('Erro ao salvar a mensagem:', error);
       }
