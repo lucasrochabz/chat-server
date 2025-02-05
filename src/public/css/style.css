@@ -20,10 +20,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 1rem;
+  padding: 1rem 0 0 1rem;
   max-height: calc(100vh - 156px);
   overflow-y: auto;
-  margin: 0 0.5rem;
 }
 
 p {

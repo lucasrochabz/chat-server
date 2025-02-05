@@ -1,4 +1,5 @@
 .header {
+  background: linear-gradient(#9b30f9, #8844ee);
+  color: #fafafa;
   padding: 1rem;
-  background-color: tomato;
 }
