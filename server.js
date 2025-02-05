@@ -8,6 +8,7 @@ const chatSocket = require('./src/sockets/chatSocket');
 // Instância do Express
 const app = express();
 
+// Serve arquivos estáticos da pasta 'public' no servidor.
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/chat', chatRouter);
 
