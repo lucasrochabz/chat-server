@@ -1,1 +1,1 @@
-# resenha-server
+# chat-server
