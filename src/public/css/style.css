@@ -1,0 +1,35 @@
+@import 'header.css';
+@import 'footer.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #212121;
+}
+
+.messages {
+  min-height: calc(100vh - 156px);
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  max-height: calc(100vh - 156px);
+  overflow-y: auto;
+  margin: 0 0.5rem;
+}
+
+p {
+  background-color: #147d2e;
+  color: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}

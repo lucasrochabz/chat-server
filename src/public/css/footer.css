@@ -1,0 +1,28 @@
+.footer {
+  padding: 1rem;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.message {
+  background-color: #fafafa;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding:1rem;
+  width: 100%;
+}
+
+.btn-send {
+  background-color: #25d366;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+}
