@@ -4,22 +4,6 @@ const inputElement = document.querySelector('#message');
 const outputElement = document.querySelector('#output');
 const btnSend = document.querySelector('#btn-send');
 
-// Escuta o histórico de mensagens enviadas pelo servidor
-socket.on('chat history', (messages) => {
-  messages.forEach((message) => {
-    const pElement = document.createElement('p');
-    pElement.textContent = message;
-    outputElement.appendChild(pElement);
-  });
-});
-
-// Escuta mensagens do servidor e exibe no chat
-socket.on('chat message', (message) => {
-  const pElement = document.createElement('p');
-  pElement.textContent = message;
-  outputElement.appendChild(pElement);
-});
-
 function handleMessage() {
   const message = inputElement.value.trim(); // Remove espaços extras
 
@@ -38,3 +22,19 @@ function handleEvent(event) {
 
 inputElement.addEventListener('keydown', handleEvent);
 btnSend.addEventListener('click', handleEvent);
+
+// Escuta o histórico de mensagens enviadas pelo servidor
+socket.on('chat history', (messages) => {
+  messages.forEach((message) => {
+    const pElement = document.createElement('p');
+    pElement.textContent = message;
+    outputElement.appendChild(pElement);
+  });
+});
+
+// Escuta mensagens do servidor e exibe no chat
+socket.on('chat message', (message) => {
+  const pElement = document.createElement('p');
+  pElement.textContent = message;
+  outputElement.appendChild(pElement);
+});
