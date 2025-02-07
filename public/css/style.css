@@ -25,7 +25,8 @@ body {
 }
 
 .my-message {
-  background-color: #147d2e;
+  /* background-color: #147d2e; */
+  background-color: #8844ee;
   color: #fafafa;
   text-align: right;
   border-radius: 10px;
@@ -36,7 +37,8 @@ body {
 }
 
 .other-message {
-  background-color: #118ce3;  
+  /* background-color: #118ce3;   */
+  background-color: #474747;
   color: #fafafa;
   text-align: left;
   border-radius: 10px;
