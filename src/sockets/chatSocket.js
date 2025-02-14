@@ -3,14 +3,16 @@ const chatService = require('../services/chatService');
 const setupChatSocket = (io) => {
   // Estabelece a conexão do socket
   io.on('connection', (socket) => {
-    // Obtém o ID do usuário
+    // Obtém o ID e IP do usuário
     console.log('ID do usuário: ', socket.id);
-    // Obtém o IP do usuário
     const clientIp = socket.handshake.address;
     console.log(`Um usuário se conectou. IP:${clientIp}`);
 
     // Envia a mensagem para todos os clientes conectados
-    io.emit('user connected', { id: 'server', text: 'Usuário conectado' });
+    socket.broadcast.emit('user connected', {
+      id: 'server',
+      text: 'Alguém se conectou',
+    });
 
     // Enviar histórico de mensagens para o novo usuário
     const messages = chatService.getHistoryMessages();
@@ -29,6 +31,7 @@ const setupChatSocket = (io) => {
 
     socket.on('disconnect', () => {
       console.log('Usuário desconectado');
+      // Envia para todos os outros sockets
       socket.broadcast.emit('user disconnected', {
         id: 'server',
         text: 'Usuário desconectado',

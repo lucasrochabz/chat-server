@@ -41,10 +41,12 @@ function handleEvent(event) {
 inputElement.addEventListener('keydown', handleEvent);
 btnSend.addEventListener('click', handleEvent);
 
+// Salva o ID do socket ao se conectar
 socket.on('connect', () => {
   mySocketId = socket.id;
 });
 
+// Exibe mensagem na tela quando outro usuário se conecta
 socket.on('user connected', (message) => {
   renderMessage(message);
 });
@@ -52,9 +54,6 @@ socket.on('user connected', (message) => {
 // Escuta o histórico de mensagens enviadas pelo servidor
 socket.on('chat history', (messages) => {
   messages?.forEach(renderMessage);
-  // const pElement = document.createElement('p');
-  // pElement.textContent = message;
-  // outputElement.appendChild(pElement);
 });
 
 // Escuta mensagens do servidor e exibe no chat
