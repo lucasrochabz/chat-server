@@ -7,7 +7,10 @@ const setupChatSocket = (io) => {
     console.log('ID do usuário: ', socket.id);
     // Obtém o IP do usuário
     const clientIp = socket.handshake.address;
-    console.log(`Um usuário se conectado. IP:${clientIp}`);
+    console.log(`Um usuário se conectou. IP:${clientIp}`);
+
+    // Envia a mensagem para todos os clientes conectados
+    io.emit('user connected', { id: 'server', text: 'Usuário conectado' });
 
     // Enviar histórico de mensagens para o novo usuário
     const messages = chatService.getHistoryMessages();
@@ -26,6 +29,10 @@ const setupChatSocket = (io) => {
 
     socket.on('disconnect', () => {
       console.log('Usuário desconectado');
+      socket.broadcast.emit('user disconnected', {
+        id: 'server',
+        text: 'Usuário desconectado',
+      });
     });
   });
 };

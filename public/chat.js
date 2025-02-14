@@ -45,6 +45,10 @@ socket.on('connect', () => {
   mySocketId = socket.id;
 });
 
+socket.on('user connected', (message) => {
+  renderMessage(message);
+});
+
 // Escuta o histórico de mensagens enviadas pelo servidor
 socket.on('chat history', (messages) => {
   messages?.forEach(renderMessage);
@@ -55,5 +59,9 @@ socket.on('chat history', (messages) => {
 
 // Escuta mensagens do servidor e exibe no chat
 socket.on('chat message', (message) => {
+  renderMessage(message);
+});
+
+socket.on('user disconnected', (message) => {
   renderMessage(message);
 });
