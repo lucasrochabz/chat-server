@@ -15,7 +15,7 @@ const setupChatSocket = (io) => {
     });
 
     // Envia uma mensagem para todos os clientes conectados
-    socket.on('chat message', async (msg) => {
+    socket.on('chat message', (msg) => {
       const msgData = { id: socket.id, text: msg };
       try {
         chatService.saveMessage(msgData);
