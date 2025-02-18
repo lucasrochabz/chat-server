@@ -51,11 +51,6 @@ socket.on('user connected', (message) => {
   renderMessage(message);
 });
 
-// Escuta o histórico de mensagens enviadas pelo servidor
-socket.on('chat history', (messages) => {
-  messages?.forEach(renderMessage);
-});
-
 // Escuta mensagens do servidor e exibe no chat
 socket.on('chat message', (message) => {
   renderMessage(message);

@@ -14,10 +14,6 @@ const setupChatSocket = (io) => {
       text: 'Alguém se conectou',
     });
 
-    // Enviar histórico de mensagens para o novo usuário
-    const messages = chatService.getHistoryMessages();
-    socket.emit('chat history', messages);
-
     // Envia uma mensagem para todos os clientes conectados
     socket.on('chat message', async (msg) => {
       const msgData = { id: socket.id, text: msg };
