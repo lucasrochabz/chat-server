@@ -8,7 +8,7 @@ const setupChatSocket = (io) => {
     const clientIp = socket.handshake.address;
     console.log(`Um usuário se conectou. IP:${clientIp}`);
 
-    // Envia a mensagem para todos os clientes conectados
+    // Envia a mensagem para os clientes conectados
     socket.broadcast.emit('user connected', {
       id: 'server',
       text: 'Alguém se conectou',
