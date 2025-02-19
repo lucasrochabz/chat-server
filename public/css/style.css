@@ -7,9 +7,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --black-color: #212121;
+  --white-color: #fafafa;
+  --violet-color: #8844ee;
+  --gray-color: #474747;
+  --dark-blue-color: #0b141a;
+  --red-color: #ff0000;
+}
+
 body {
   font-family: sans-serif;
-  background-color: #212121;
+  background-color: var(--black-color);
 }
 
 .messages {
@@ -25,7 +34,7 @@ body {
 }
 
 .my-message {
-  background-color: #8844ee;
+  background-color: var(--violet-color);
   color: #fafafa;
   text-align: right;
   border-radius: 10px;
@@ -36,8 +45,8 @@ body {
 }
 
 .other-message {
-  background-color: #474747;
-  color: #fafafa;
+  background-color: var(--gray-color);
+  color: var(--white-color);
   text-align: left;
   border-radius: 10px;
   margin-bottom: 0.5rem;
@@ -47,8 +56,8 @@ body {
 }
 
 .server {
-  background-color: #ff0000;
-  color: #fafafa;
+  background-color: var(--red-color);
+  color: var(--white-color);
   text-align: center;
   border-radius: 10px;
   margin-bottom: 0.5rem;

@@ -9,7 +9,7 @@
 }
 
 .message {
-  background-color: #fafafa;
+  background-color: var(--white-color);
   font-size: 1.5rem;
   border: none;
   outline: none;
@@ -19,8 +19,7 @@
 }
 
 .btn-send {
-  /* background-color: #25d366; */
-  background-color: #8844ee;
+  background-color: var(--violet-color);
   color: #fafafa;
   font-weight: bold;
   border: none;
